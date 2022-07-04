@@ -18,6 +18,7 @@ Build the `urm-core` project with `mvn clean package` and grab the generated art
     java -cp abstract-factory.jar:urm-core.jar com.iluwatar.urm.DomainMapperCli -p com.iluwatar.abstractfactory -i com.iluwatar.abstractfactory.Castle
 
 This will scan all the classes under the package `com.iluwatar.abstractfactory` except `Castle` that was marked to be ignored and output the markup to your console output. By default PlantUML presenter is used, but it can be changed with switch `-s graphviz` or `-s mermaid`. If you want to write it to file use switch `-f filename`. If you need to scan multiple packages use format `-p "com.package1, com.package2"`. Note that under Windows OS the classpath separator is `;` instead of `:`
+#TODO introduce -w 
 
 ### Using the Maven plugin
 
@@ -89,7 +90,10 @@ mvn clean deploy -P release
 ```
 
 ### Release notes
-
+- 2.0.1
+    -added war file support (-w)
+    java -cp urm-core -s mermaid -i x.y.z.shared,x.y.z.backend -p x.y.z.backend -f output -w "C:\tmp\example-0.0.1.war"
+    
 - 2.0.0
     - Add support for Mermaid presenter [#39](https://github.com/iluwatar/uml-reverse-mapper/pull/39)
     - Update to Java 11 [#42](https://github.com/iluwatar/uml-reverse-mapper/issues/42) and [#56](https://github.com/iluwatar/uml-reverse-mapper/pull/56)
